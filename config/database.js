@@ -8,5 +8,5 @@ mongoose.connect(process.env.DATABASE_URL, {
 });
 
 db.on('connected', function() {
-    console.log(`MongoDB connected on ${db.host}:${db.port}`)
+    console.log(`MongoDB connected on ${db.db.databaseName}`)
 })
