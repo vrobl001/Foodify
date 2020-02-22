@@ -2,10 +2,14 @@
     display: flex;
     align-items: center;
     height: 5rem;
-    background-color: #dda0dd;
+    background-color: lightblue;
     justify-content: space-around;
-    color: #ffffff;
     box-shadow: 2px 2px 7px 2px lightgrey;
+}
+
+.navbar h1 {
+    font-size: 2rem;
+    font-family: 'Pacifico', cursive;
 }
 
 .navbar ul {
@@ -20,4 +24,9 @@
 
 .navbar ul li:hover {
     border-bottom: 2px solid gray;
+}
+
+.navbar a {
+    text-decoration: none;
+    color: #ffffff;
 }
