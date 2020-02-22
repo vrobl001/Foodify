@@ -1,14 +1,24 @@
 import React from 'react';
-import styles from './Navbar.module.css'
+import { Link } from 'react-router-dom';
+
+import styles from './Navbar.module.css';
 
 const Navbar = (props) => {
     return(
         <nav className={styles.navbar}>
-            <h1>Foodify</h1>
+            <Link to="/">
+                <h1>Foodify</h1>
+            </Link>
             <ul>
-                <li>Restaurants</li>
-                <li>Login</li>
-                <li>Signup</li>
+                <li>
+                    <Link to="/restaurants">Restaurants</Link>
+                </li>
+                <li>
+                    <Link to="/signup">Signup</Link>
+                </li>
+                <li>
+                    <Link to="/login">Login</Link>
+                </li>
             </ul>
         </nav>
     );
