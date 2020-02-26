@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Switch, Route } from 'react-router-dom';
 
 // Reusable Components
@@ -13,32 +13,38 @@ import Signup from './pages/Signup/Signup';
 
 import './App.css';
 
-function App() {
-    return (
-        <div className='App-outer-container'>
-            <Navbar />
-            <div className='App-inner-container'>
-                <Switch>
-                    <Route exact path='/' render={props => <Home />} />
+class App extends Component {
+    render() {
+        return (
+            <div className='App-outer-container'>
+                <Navbar />
+                <div className='App-inner-container'>
+                    <Switch>
+                        <Route exact path='/' render={props => <Home />} />
 
-                    <Route
-                        exact
-                        path='/restaurants'
-                        render={props => <Restaurants />}
-                    />
+                        <Route
+                            exact
+                            path='/restaurants'
+                            render={props => <Restaurants />}
+                        />
 
-                    <Route exact path='/login' render={props => <Login />} />
+                        <Route
+                            exact
+                            path='/login'
+                            render={props => <Login />}
+                        />
 
-                    <Route
-                        exact
-                        path='/signup'
-                        render={props => <Signup {...props} />}
-                    />
-                </Switch>
+                        <Route
+                            exact
+                            path='/signup'
+                            render={props => <Signup {...props} />}
+                        />
+                    </Switch>
+                </div>
+                <Footer />
             </div>
-            <Footer />
-        </div>
-    );
+        );
+    }
 }
 
 export default App;
