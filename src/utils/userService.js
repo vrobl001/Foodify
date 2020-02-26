@@ -2,6 +2,14 @@ import tokenService from './tokenService';
 
 const BASE_URL = '/api/users/';
 
+function logout() {
+    tokenService.removeToken();
+}
+
+function getUser() {
+    return tokenService.getUserFromToken();
+}
+
 function signup(user) {
     return fetch(BASE_URL + 'signup', {
         method: 'POST',
@@ -19,5 +27,7 @@ function signup(user) {
 }
 
 export default {
-    signup
+    signup,
+    getUser,
+    logout
 };
