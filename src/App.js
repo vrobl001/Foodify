@@ -34,7 +34,7 @@ function App() {
           } />
 
           <Route exact path="/signup" render={props =>
-            <Signup />
+            <Signup {...props} />
           } />
 
         </Switch>
