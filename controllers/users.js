@@ -12,7 +12,7 @@ async function signup(req, res) {
         const token = createJWT(user);
         res.json({ token });
     } catch (error) {
-        console.log(error)
+        console.log(error);
         res.status(400).json(error);
     }
 }

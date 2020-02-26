@@ -26,8 +26,8 @@ class SignupForm extends Component {
 
     handleChange = e => {
         this.setState({
-            error:'',
-            ...{[e.target.name]: e.target.value}
+            error: '',
+            ...{ [e.target.name]: e.target.value }
         });
     };
 
