@@ -19,6 +19,7 @@ class LoginForm extends Component {
 
     handleChange = e => {
         this.setState({
+            error: '',
             [e.target.name]: e.target.value
         });
     };
@@ -33,38 +34,47 @@ class LoginForm extends Component {
                 this.props.handleSignupOrLogin();
                 this.props.history.push('/restaurants');
             });
-        } catch (error) {}
+        } catch (error) {
+            this.setState({
+                email: '',
+                password: '',
+                error: error.message
+            });
+        }
     };
 
     render() {
         return (
-            <form onSubmit={this.handleSubmit} className={styles.form}>
-                <fieldset>
-                    <legend>Login Form</legend>
+            <section className={styles.section}>
+                {this.state.error && <p>{this.state.error}</p>}
+                <form onSubmit={this.handleSubmit}>
+                    <fieldset>
+                        <legend>Login Form</legend>
 
-                    <label htmlFor='email'>Email</label>
-                    <input
-                        id='email'
-                        name='email'
-                        type='email'
-                        value={this.state.email}
-                        onChange={this.handleChange}
-                    />
+                        <label htmlFor='email'>Email</label>
+                        <input
+                            id='email'
+                            name='email'
+                            type='email'
+                            value={this.state.email}
+                            onChange={this.handleChange}
+                        />
 
-                    <label htmlFor='password'>Password</label>
-                    <input
-                        id='password'
-                        name='password'
-                        type='password'
-                        value={this.state.password}
-                        onChange={this.handleChange}
-                    />
+                        <label htmlFor='password'>Password</label>
+                        <input
+                            id='password'
+                            name='password'
+                            type='password'
+                            value={this.state.password}
+                            onChange={this.handleChange}
+                        />
 
-                    <button disabled={!this.isFormValid()} type='submit'>
-                        Login
-                    </button>
-                </fieldset>
-            </form>
+                        <button disabled={!this.isFormValid()} type='submit'>
+                            Login
+                        </button>
+                    </fieldset>
+                </form>
+            </section>
         );
     }
 }
